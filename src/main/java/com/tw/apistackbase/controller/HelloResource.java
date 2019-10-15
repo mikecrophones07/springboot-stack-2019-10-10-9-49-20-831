@@ -1,11 +1,12 @@
 package com.tw.apistackbase.controller;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.lang.reflect.Member;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Queue;
 import java.util.logging.Logger;
 
 /**
@@ -22,6 +23,4 @@ public class HelloResource {
 
         return ResponseEntity.ok("Hello:" + userName);
     }
-
-
 }

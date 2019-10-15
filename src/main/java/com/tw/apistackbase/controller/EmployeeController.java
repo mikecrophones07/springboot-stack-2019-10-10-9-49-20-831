@@ -32,4 +32,11 @@ public class EmployeeController {
         employeeList.set(employeeList.indexOf(employeeInfo), employee);
         return employeeList;
     }
+
+    @DeleteMapping(path = "/deleteEmployee/{id}", consumes = "application/json", produces = "application/json")
+    public List<Employee> deleteEmployee(@PathVariable Integer id){
+        Employee employee = employeeList.stream().filter(emp -> emp.getId().equals(id)).findFirst().orElse(null);
+        employeeList.remove(employee);
+        return employeeList;
+    }
 }

@@ -26,4 +26,10 @@ public class EmployeeController {
         return  employeeList.stream().filter(employee -> employee.getId().equals(id)).findFirst().orElse(null);
     }
 
+    @PutMapping(path = "/updateEmployeeInfo", consumes = "application/json", produces = "application/json")
+    public List<Employee> updateEmployeeInfo(@RequestBody Employee employee){
+        Employee employeeInfo = employeeList.stream().filter(emp -> emp.getId().equals(employee.getId())).findFirst().orElse(null);
+        employeeList.set(employeeList.indexOf(employeeInfo), employee);
+        return employeeList;
+    }
 }
